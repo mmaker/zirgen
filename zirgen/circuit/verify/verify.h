@@ -52,4 +52,23 @@ VerifyInfo verifyRecursion(ReadIopVal& allowedRoot,
                            std::vector<ReadIopVal> alloweds,
                            const CircuitInterface& circuit);
 
+struct GroupInfoV3 {
+  size_t globalCount;
+  size_t mixCount;
+};
+
+class CircuitInterfaceV3 {
+public:
+  virtual ~CircuitInterfaceV3() {}
+  virtual const Zll::TapSet& getTaps() const = 0;
+  virtual const llvm::ArrayRef<GroupInfoV3> getGroupInfo() const = 0;
+  virtual Val computePolyExt(llvm::ArrayRef<Val> u,
+                             llvm::ArrayRef<Val> out,
+                             llvm::ArrayRef<Val> accumMix,
+                             Val polyMix) const = 0;
+};
+
+// Returns verified code root.
+void verifyV3(ReadIopVal& iop, size_t po2, const CircuitInterfaceV3& circuit);
+
 } // namespace zirgen::verify

@@ -1,0 +1,14 @@
+load("//bazel/rules/zirgen:edsl-defs.bzl", "build_circuit")
+
+package(
+    default_visibility = ["//visibility:public"],
+)
+
+cc_library(
+    name = "lib",
+    srcs = ["CircuitInterface.cpp"],
+    hdrs = ["CircuitInterface.h"],
+    deps = [
+        "//zirgen/circuit/verify:lib",
+    ],
+)
