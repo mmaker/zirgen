@@ -12,3 +12,13 @@ cc_library(
         "//zirgen/circuit/verify:lib",
     ],
 )
+
+build_circuit(
+    name = "predicates",
+    srcs = ["predicates.cpp"],
+    outs = ["hello_lift_12.zkr"],
+    deps = [
+        ":lib",
+        "//zirgen/circuit/predicates:lib",
+    ],
+)
