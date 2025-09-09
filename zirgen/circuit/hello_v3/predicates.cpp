@@ -12,8 +12,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#include "zirgen/circuit/hello_v3/CircuitInterface.h"
 #include "zirgen/circuit/predicates/predicates.h"
+#include "zirgen/circuit/hello_v3/CircuitInterface.h"
 #include "zirgen/circuit/recursion/code.h"
 #include "zirgen/circuit/verify/verify.h"
 #include "zirgen/compiler/codegen/codegen.h"
